@@ -1,0 +1,5 @@
+name: handler_group_a
+handlers: 
+  - sample_a
+  - sample_b
+  - sample_z

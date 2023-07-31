@@ -1,0 +1,10 @@
+type: SampleAutoConstructHandler
+name: sample_b
+confs: 
+  - env: Online
+    regions_conf:
+    - region: us-east-1
+      aws_region: us-east-1
+      int_key: 1
+    - region: us-east-2
+      aws_region: us-east-2

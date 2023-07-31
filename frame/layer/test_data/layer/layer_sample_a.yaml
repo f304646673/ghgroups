@@ -1,0 +1,6 @@
+type: Layer
+name: layer_sample_a
+divider: SampleSelfConstructDividerSingle
+handlers: 
+  - SampleSelfConstructHandlerSingle
+    

@@ -1,0 +1,5 @@
+type: Layer
+name: layer_center_layer
+layers: 
+  - layer_sample_a
+  - layer_sample_b

@@ -1,0 +1,11 @@
+name: SampleHandlerCenter
+- type: Handler
+  name: SampleHandler1
+  confs: 
+    - env: Online
+      regions_conf:
+      - region: us-east-1
+        aws_region: us-east-1
+        int_key: a
+      - region: us-east-2
+        aws_region: us-east-2

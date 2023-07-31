@@ -1,0 +1,11 @@
+type: SampleAutoConstructDivider
+name: divider_sample_a
+handler_name: handler_sample_b
+confs: 
+  - env: Online
+    regions_conf:
+    - region: us-east-1
+      aws_region: us-east-1
+      int_key: 1
+    - region: us-east-2
+      aws_region: us-east-2

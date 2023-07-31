@@ -1,0 +1,6 @@
+name: Sample
+divider: divider_sample_a
+handlers: 
+  - handler_sample_a
+  - handler_sample_b
+    

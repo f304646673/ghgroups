@@ -1,0 +1,7 @@
+type: Layer
+name: layer_sample_b
+divider: divider_sample_b
+handlers: 
+  - handler_sample_a
+  - handler_sample_b
+    
