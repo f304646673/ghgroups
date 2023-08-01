@@ -12,7 +12,6 @@ func main() {
 	constructor := utils.BuildConstructor("")
 	constructor.Register(reflect.TypeOf(ExampleHandler{}))
 
-	context := ghgroupscontext.NewGhGroupsContext(nil)
 	mainProcess := reflect.TypeOf(ExampleHandler{}).Name()
 	if err := constructor.CreateConcrete(mainProcess); err != nil {
 		fmt.Printf("%v", err)
@@ -23,6 +22,7 @@ func main() {
 		if mainHandlerGroup, ok := someInterfaced.(frame.HandlerBaseInterface); !ok {
 			fmt.Printf("mainHandlerGroup %s is not frame.HandlerBaseInterface", mainProcess)
 		} else {
+			context := ghgroupscontext.NewGhGroupsContext(nil)
 			mainHandlerGroup.Handle(context)
 		}
 	}

@@ -1,0 +1,5 @@
+name: handler_group_a
+type: HandlerGroup
+handlers: 
+  - ExampleAHandler
+  - ExampleBHandler

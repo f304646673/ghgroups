@@ -7,23 +7,23 @@ import (
 	"reflect"
 )
 
-type ExampleHandler struct {
+type ExampleBHandler struct {
 	frame.HandlerBaseInterface
 }
 
-func NewExampleHandler() *ExampleHandler {
-	return &ExampleHandler{}
+func NewExampleBHandler() *ExampleBHandler {
+	return &ExampleBHandler{}
 }
 
 // ///////////////////////////////////////////////////////////////////////////////////////////
 // ConcreteInterface
-func (e *ExampleHandler) Name() string {
+func (e *ExampleBHandler) Name() string {
 	return reflect.TypeOf(*e).Name()
 }
 
 // ///////////////////////////////////////////////////////////////////////////////////////////
 // HandlerBaseInterface
-func (e *ExampleHandler) Handle(*ghgroupscontext.GhGroupsContext) bool {
-	fmt.Printf("run %s", e.Name())
+func (e *ExampleBHandler) Handle(*ghgroupscontext.GhGroupsContext) bool {
+	fmt.Printf("run %s\n", e.Name())
 	return true
 }
