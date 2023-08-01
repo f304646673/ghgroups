@@ -1,4 +1,4 @@
-type: Layer
+type: LayerCenter
 name: layer_center_layer
 layers: 
   - layer_sample_a
