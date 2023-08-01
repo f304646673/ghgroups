@@ -1,0 +1,5 @@
+name: async_handler_group_a
+type: AsyncHandlerGroup
+handlers: 
+  - ExampleAHandler
+  - ExampleBHandler
