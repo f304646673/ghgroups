@@ -1,0 +1,6 @@
+name: layer_a
+type: Layer
+divider: ExampleDivider
+handlers: 
+  - ExampleAHandler
+  - ExampleBHandler
