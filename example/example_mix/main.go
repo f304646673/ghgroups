@@ -22,12 +22,6 @@ import (
 )
 
 func main() {
-	runPath, errGetWd := os.Getwd()
-	if errGetWd != nil {
-		fmt.Printf("%v", errGetWd)
-		return
-	}
-	concretePath := path.Join(runPath, "conf")
 	factory := factory.NewFactory()
 	factory.Register(reflect.TypeOf(examplelayera.ExampleA1Handler{}))
 	factory.Register(reflect.TypeOf(examplelayera.ExampleA2Handler{}))
@@ -53,6 +47,12 @@ func main() {
 	factory.Register(reflect.TypeOf(examplelayerg.ExampleG1Handler{}))
 	factory.Register(reflect.TypeOf(examplelayerg.ExampleG2Handler{}))
 
+	runPath, errGetWd := os.Getwd()
+	if errGetWd != nil {
+		fmt.Printf("%v", errGetWd)
+		return
+	}
+	concretePath := path.Join(runPath, "conf")
 	constructor := constructorbuilder.BuildConstructor(factory, concretePath)
 
 	fmt.Print("\n\nlayer_center_main:\n\n")

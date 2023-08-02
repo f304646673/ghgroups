@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"ghgroups/frame"
+	"ghgroups/frame/constructor"
 	ghgroupscontext "ghgroups/frame/ghgroups_context"
 	"ghgroups/frame/utils"
 	"reflect"
@@ -11,8 +12,11 @@ import (
 func main() {
 	constructor := utils.BuildConstructor("")
 	constructor.Register(reflect.TypeOf(ExampleHandler{}))
-
 	mainProcess := reflect.TypeOf(ExampleHandler{}).Name()
+	run(constructor, mainProcess)
+}
+
+func run(constructor *constructor.Constructor, mainProcess string) {
 	if err := constructor.CreateConcrete(mainProcess); err != nil {
 		fmt.Printf("%v", err)
 	}
@@ -23,6 +27,7 @@ func main() {
 			fmt.Printf("mainHandlerGroup %s is not frame.HandlerBaseInterface", mainProcess)
 		} else {
 			context := ghgroupscontext.NewGhGroupsContext(nil)
+			// context.ShowDuration = true
 			mainHandlerGroup.Handle(context)
 		}
 	}
