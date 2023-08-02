@@ -9,3 +9,7 @@ func NewGhGroupsContext(context any) *GhGroupsContext {
 		context: context,
 	}
 }
+
+func (s *GhGroupsContext) Context() any {
+	return s.context
+}
