@@ -3,9 +3,10 @@ package handlergroup
 import (
 	"fmt"
 	"ghgroups/frame"
-	"os"
-
+	debughelper "ghgroups/frame/debug_helper"
 	ghgroupscontext "ghgroups/frame/ghgroups_context"
+	"os"
+	"time"
 
 	"gopkg.in/yaml.v2"
 )
@@ -42,9 +43,9 @@ func (h *HandlerGroup) Handle(context *ghgroupscontext.GhGroupsContext) bool {
 }
 
 func handlerWithSaveDuration(handlerBaseInterface frame.HandlerBaseInterface, handlerName string, ctx *ghgroupscontext.GhGroupsContext) bool {
-	// if ctx.DebugFlag {
-	// 	defer debughelper.SaveDurationToContext(time.Now(), handlerName, ctx)
-	// }
+	if ctx.ShowDuration {
+		defer debughelper.DealDuration(time.Now(), handlerName, ctx)
+	}
 	return handlerBaseInterface.Handle(ctx)
 }
 

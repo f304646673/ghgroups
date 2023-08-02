@@ -74,6 +74,7 @@ func run(constructor *constructor.Constructor, mainProcess string) {
 			fmt.Printf("mainHandlerGroup %s is not frame.HandlerBaseInterface", mainProcess)
 		} else {
 			context := ghgroupscontext.NewGhGroupsContext(nil)
+			context.ShowDuration = true
 			mainHandlerGroup.Handle(context)
 		}
 	}

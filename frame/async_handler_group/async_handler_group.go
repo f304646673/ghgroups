@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"ghgroups/frame"
 	"os"
+	"time"
 
+	debughelper "ghgroups/frame/debug_helper"
 	ghgroupscontext "ghgroups/frame/ghgroups_context"
 	"sync"
 
@@ -58,9 +60,9 @@ func (a *AsyncHandlerGroup) Handle(context *ghgroupscontext.GhGroupsContext) boo
 }
 
 func handlerWithSaveDuration(handlerBaseInterface frame.HandlerBaseInterface, handlerName string, ctx *ghgroupscontext.GhGroupsContext) bool {
-	// if ctx.DebugFlag {
-	// 	defer debughelper.SaveDurationToContext(time.Now(), handlerName, ctx)
-	// }
+	if ctx.ShowDuration {
+		defer debughelper.DealDuration(time.Now(), handlerName, ctx)
+	}
 	return handlerBaseInterface.Handle(ctx)
 }
 
