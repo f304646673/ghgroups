@@ -1,0 +1,5 @@
+type: LayerCenter
+name: layer_center_a
+layers: 
+  - layer_a
+  - layer_b

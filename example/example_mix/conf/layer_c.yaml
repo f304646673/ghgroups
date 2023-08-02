@@ -1,0 +1,6 @@
+name: layer_c
+type: Layer
+divider: ExampleCDivider
+handlers: 
+  - ExampleC1Handler
+  - ExampleC2Handler

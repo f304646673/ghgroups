@@ -1,0 +1,6 @@
+name: layer_g
+type: Layer
+divider: ExampleGDivider
+handlers: 
+  - ExampleG1Handler
+  - ExampleG2Handler

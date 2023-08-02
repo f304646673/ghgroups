@@ -1,0 +1,5 @@
+name: async_handler_group_f
+type: AsyncHandlerGroup
+handlers: 
+  - ExampleF1Handler
+  - ExampleF2Handler
