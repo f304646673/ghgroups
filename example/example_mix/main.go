@@ -12,6 +12,7 @@ import (
 
 	examplelayerg "ghgroups/example/example_mix/example_layer_g"
 	"ghgroups/frame"
+	"ghgroups/frame/constructor"
 	constructorbuilder "ghgroups/frame/constructor_builder"
 	"ghgroups/frame/factory"
 	ghgroupscontext "ghgroups/frame/ghgroups_context"
@@ -54,7 +55,15 @@ func main() {
 
 	constructor := constructorbuilder.BuildConstructor(factory, concretePath)
 
-	mainProcess := "layer_center_main"
+	fmt.Print("\n\nlayer_center_main:\n\n")
+	run(constructor, "layer_center_main")
+	fmt.Print("\n\nhandler_group_main:\n\n")
+	run(constructor, "handler_group_main")
+	fmt.Print("\n\nasync_handler_group_main:\n\n")
+	run(constructor, "async_handler_group_main")
+}
+
+func run(constructor *constructor.Constructor, mainProcess string) {
 	if err := constructor.CreateConcrete(mainProcess); err != nil {
 		fmt.Printf("%v", err)
 	}

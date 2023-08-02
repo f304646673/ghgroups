@@ -1,0 +1,9 @@
+type: AsyncHandlerGroup
+name: async_handler_group_main
+handlers: 
+  - layer_c
+  - handler_group_e
+  - async_handler_group_f
+  - layer_g
+  - example_layer_center_a
+  - ExampleDHandler
