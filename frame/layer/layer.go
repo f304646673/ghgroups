@@ -6,7 +6,6 @@ import (
 	debughelper "ghgroups/frame/debug_helper"
 	ghgroupscontext "ghgroups/frame/ghgroups_context"
 	"os"
-	"time"
 
 	"gopkg.in/yaml.v2"
 )
@@ -128,15 +127,8 @@ func (l *Layer) Handle(ctx *ghgroupscontext.GhGroupsContext) bool {
 	if handler, ok := l.handlers[layerName]; !ok {
 		return false
 	} else {
-		return handlerWithSaveDuration(handler, layerName, ctx)
+		return debughelper.HandleWithShowDuration(handler, layerName, ctx)
 	}
-}
-
-func handlerWithSaveDuration(handlerBaseInterface frame.HandlerBaseInterface, layeName string, ctx *ghgroupscontext.GhGroupsContext) bool {
-	if ctx.ShowDuration {
-		defer debughelper.DealDuration(time.Now(), layeName, ctx)
-	}
-	return handlerBaseInterface.Handle(ctx)
 }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

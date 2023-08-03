@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"ghgroups/frame"
 	"os"
-	"time"
 
 	debughelper "ghgroups/frame/debug_helper"
 	ghgroupscontext "ghgroups/frame/ghgroups_context"
@@ -40,7 +39,7 @@ func (a *AsyncHandlerGroup) Handle(context *ghgroupscontext.GhGroupsContext) boo
 	for _, handler := range a.handlers {
 		wg.Add(1)
 		go func(handler frame.HandlerBaseInterface) {
-			status := handlerWithSaveDuration(handler, handler.Name(), context)
+			status := debughelper.HandleWithShowDuration(handler, handler.Name(), context)
 			checkChan <- status
 			wg.Done()
 		}(handler)
@@ -57,13 +56,6 @@ func (a *AsyncHandlerGroup) Handle(context *ghgroupscontext.GhGroupsContext) boo
 			return true
 		}
 	}
-}
-
-func handlerWithSaveDuration(handlerBaseInterface frame.HandlerBaseInterface, handlerName string, ctx *ghgroupscontext.GhGroupsContext) bool {
-	if ctx.ShowDuration {
-		defer debughelper.DealDuration(time.Now(), handlerName, ctx)
-	}
-	return handlerBaseInterface.Handle(ctx)
 }
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

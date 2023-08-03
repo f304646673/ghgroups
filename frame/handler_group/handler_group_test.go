@@ -142,6 +142,7 @@ func TestAdd(t *testing.T) {
 		return true
 	})
 
-	assert.True(t, handlerGroup.Handle(nil))
+	context := ghgroupscontext.NewGhGroupsContext(nil)
+	assert.True(t, handlerGroup.Handle(context))
 	assert.True(t, called)
 }
