@@ -292,11 +292,14 @@ type HandlerBaseInterface interface {
 这样我们就可以保证各个组件可以通过统一的接口调用。更进一步，我们在组织它们关系时，Handler、HandlerGroup、AsyncHandlerGroup、Layer和LayerCenter都是等价的，即它们可以相互替换。
 举个例子，LayerCenter下每个Layer可以不是Layer，而是上述任何一个组件。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/68395f0f2e664929bd0b60d9ade91354.jpeg#pic_center)
+
 再比如Layer下每个组件，也不必是Handler，也可以上上述任何组件。
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/95510e842476417db0222ee800919876.jpeg#pic_center)
+
 HandlerGroup、AsyncHandlerGroup下也不用是Handler，而是上述其他组件。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/70c91bd1224544cda21ceba3a308d1f7.jpeg#pic_center)
+
 正是这种随意组合的特性，让这个框架更加灵活。
 在[github](https://github.com/f304646673/ghgroups/tree/main/example/example_mix)中，我们展示了几个组合。其中一个配置如下。
 
