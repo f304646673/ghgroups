@@ -5,6 +5,6 @@ confs:
     regions_conf:
     - region: us-east-1
       aws_region: us-east-1
-      int_key: 1
+      int_key: 2
     - region: us-east-2
       aws_region: us-east-2
