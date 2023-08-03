@@ -173,6 +173,24 @@ func NewConstructor(factory frame.FactoryInterface, confPath string) *Constructo
 	}
 	handlerConstructorSetterInterface.SetConstructorInterface(constructor)
 
+	layerCenterConstructorSetterInterface, ok := layerCenterConstructor.(frame.ConstructorSetterInterface)
+	if !ok {
+		panic("layerCenterConstructor is not frame.ConstructorSetterInterface")
+	}
+	layerCenterConstructorSetterInterface.SetConstructorInterface(constructor)
+
+	handlerGroupConstructorSetterInterface, ok := handlerGroupConstructor.(frame.ConstructorSetterInterface)
+	if !ok {
+		panic("handlerGroupConstructor is not frame.ConstructorSetterInterface")
+	}
+	handlerGroupConstructorSetterInterface.SetConstructorInterface(constructor)
+
+	asyncHandlerGroupConstructorSetterInterface, ok := asyncHandlerGroupConstructor.(frame.ConstructorSetterInterface)
+	if !ok {
+		panic("asyncHandlerGroupConstructor is not frame.ConstructorSetterInterface")
+	}
+	asyncHandlerGroupConstructorSetterInterface.SetConstructorInterface(constructor)
+
 	return constructor
 }
 
